@@ -1,0 +1,28 @@
+<header class="bg-transparent">
+    <nav class="flex justify-between items-center w-[92%] mx-auto">
+      <div>
+        <h1 class="text-3xl myfont md:py-6 px-8 pt-8 font-semibold   text-white cursor-pointer hover:text-sky-400 transition-all duration-500" routerLink="">
+            Weather Ease
+        </h1>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="md:hidden">
+          <i class="text-white mr-4 md:py-4 px-8 pt-8 fa-solid fa-{{ name }} fa-2x hover:text-sky-400" (click)="onToggleMenu()"></i>
+        </div>
+        <ul [ngClass]="{'hidden': !isMenuOpen}" class="md:flex md:flex-row flex-col md:justify-end md:items-right md:gap-[4vw] gap-9 px-4 py-3 pr-7">
+          <li class="text-right">
+            <a class="hover:text-sky-400 transition-all duration-500 font-bold text-white" href="#home">HOME</a>
+          </li>
+          <li class="text-right">
+            <a class="hover:text-sky-400 transition-all duration-500 font-bold text-white" href="#today">TODAY</a>
+          </li>
+          <li class="text-right">
+            <a class="hover:text-sky-400 transition-all duration-500 font-bold text-white" href="#days">10 DAYS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  
+  

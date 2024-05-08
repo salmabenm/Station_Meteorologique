@@ -1,7 +1,12 @@
-<div class="flex min-h-screen items-center justify-center" style="background-image: url('../../assets/background.jpg'); background-size: cover; background-position: center;">
-    <div class="flex min-h-screen items-center justify-center">
-        <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+<div class="flex min-h-screen items-center justify-center">
+
+    <div class="absolute top-0 pb-9 w-full h-full bg-center bg-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url('../../assets/background.jpg');">
+        <app-header></app-header>
+    </div>
+
+    <div class="flex min-h-screen items-center justify-center pt-0">
+        <div class="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mt-20 sm:mt-15 sm:mx-8 mx-5 ">
+        <div class="relative m-0 hidden sm:block w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
             <img
                 src="../../assets/background.jpg"
             alt="image"
@@ -25,10 +30,10 @@
             </p>
             <a class="inline-block" href="#">
             <button
-                class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-sky-400 transition-all hover:bg-sky-400/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-sky-400 transition-all hover:bg-sky-400/10 active:bg-sky-400/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button"
             >
-                Learn More
+                Today's Weather
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
