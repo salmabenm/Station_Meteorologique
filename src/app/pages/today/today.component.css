@@ -1,0 +1,11 @@
+.box {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Largeur de la boîte */
+    height: 100px; /* Hauteur de la boîte */
+    background-color: #f0f0f0; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre */
+  }
