@@ -44,9 +44,10 @@
                     <div *ngFor="let weather of weathertoday" class="flex justify-between w-64 mb-8 w-full">
                         <div class="w-auto font-bold uppercase text-90"><i class="fas fa-wind"></i> Wind Speed</div>
                         <div class="w-auto text-right">{{ weather.windSpeed }} Km/h</div>
-                    </div>                                      
-                    <div class="flex flex-row space-x-2">
-                        <div *ngFor="let weather of weatherList" class="flex flex-col w-1/4 bg-gray-900 rounded-lg pb-4 transform transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="flex justify-center space-x-1">
+                        <button class="text-white bg-gray-500 rounded-full w-8 h-8 mt-14 transform transition-transform duration-300 hover:scale-110" (click)="prevGroup()">&#10094;</button>
+                        <div *ngFor="let weather of productGroup" class="flex flex-col w-1/4 bg-gray-900 rounded-lg pb-4 transform transition-transform duration-300 hover:scale-110">
                             <div class="text-center pt-2 mb-2">
                                 <svg class="w-10 mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 33.062 33.062" style="enable-background:new 0 0 33.062 33.062;" xml:space="preserve">
                                     <path d="M25.615,26.608H6.442C2.89,26.608,0,23.719,0,20.168c0-3.502,2.81-6.361,6.294-6.439c1.241-4.304,5.161-7.275,9.67-7.275   c3.736,0,7.101,2.023,8.866,5.306c0.26-0.026,0.522-0.04,0.784-0.04c4.106,0,7.446,3.339,7.446,7.443   C33.062,23.268,29.721,26.608,25.615,26.608z M6.527,14.732C3.437,14.732,1,17.17,1,20.168c0,2.999,2.441,5.439,5.442,5.439h19.173   c3.555,0,6.446-2.892,6.446-6.445c0-3.553-2.892-6.443-6.446-6.443c-0.314,0-0.63,0.022-0.939,0.066   c-0.229,0.063-0.469-0.046-0.574-0.259c-1.545-3.13-4.663-5.073-8.137-5.073c-4.183,0-7.803,2.839-8.804,6.904   c-0.056,0.228-0.278,0.372-0.498,0.381l-0.127-0.007C6.533,14.732,6.53,14.732,6.527,14.732z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
@@ -59,9 +60,10 @@
                                 <b class="font-normal text-xs"><i class="fas fa-wind"></i> {{ weather.windSpeed }} Km/h</b><br>
                             </div>
                         </div>
+                        <button class="text-white bg-gray-500 rounded-full w-8 h-8 mt-14 transform transition-transform duration-300 hover:scale-110" (click)="nextGroup()">&#10095;</button>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
 </div>

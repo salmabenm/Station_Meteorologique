@@ -9,7 +9,8 @@ import { Weather } from '../../interfaces/weather.interface';
 })
 export class TodayComponent {
 
-  
+  currentIndex = 0;
+  itemsPerPage = 4; 
   currentDate = new Date();
   daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -19,9 +20,19 @@ export class TodayComponent {
     { heure: '12:00', temperature: 27, humidity: 55, windSpeed: 25 },
     { heure: '15:00', temperature: 31, humidity: 65, windSpeed: 35 },
     { heure: '18:00', temperature: 25, humidity: 63, windSpeed: 28 },
+    { heure: '20:00', temperature: 20, humidity: 55, windSpeed: 25 },
+    { heure: '21:00', temperature: 18, humidity: 65, windSpeed: 20 },
+    { heure: '22:00', temperature: 15, humidity: 68, windSpeed: 22 },
+    { heure: '23:00', temperature: 14, humidity: 70, windSpeed: 26 },
+    { heure: '03:00', temperature: 8, humidity: 55, windSpeed: 25 },
+    { heure: '04:00', temperature: 10, humidity: 65, windSpeed: 20 },
+    { heure: '05:00', temperature: 12, humidity: 68, windSpeed: 22 },
+    { heure: '06:00', temperature: 13, humidity: 70, windSpeed: 26 },
+   
   ];
 
- 
+  totalItems = this.weatherList.length;
+
   weathertoday: Weather[] = [
     {
       temperature: 28,
@@ -35,5 +46,23 @@ export class TodayComponent {
       },
     },
   ];
+
+  get productGroup(): any[] {
+    const start = this.currentIndex * this.itemsPerPage;
+    const end = Math.min(start + this.itemsPerPage, this.totalItems);
+    return this.weatherList.slice(start, end);
+  }
+
+  nextGroup() {
+    if ((this.currentIndex + 1) * this.itemsPerPage < this.totalItems) {
+      this.currentIndex++;
+    }
+  }
+
+  prevGroup() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
 
 }
