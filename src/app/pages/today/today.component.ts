@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeatherDetails } from '../../interfaces/weather-details.interface';
 import { Weather } from '../../interfaces/weather.interface';
+import { TodayService } from '../../services/todayService/today.service';
 
 @Component({
   selector: 'app-today',
   templateUrl: './today.component.html',
   styleUrl: './today.component.css'
 })
-export class TodayComponent {
+export class TodayComponent implements OnInit {
 
   currentIndex = 0;
   itemsPerPage = 4; 
@@ -15,6 +16,17 @@ export class TodayComponent {
   daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+  message: string ='';
+
+  constructor(private flaskService: TodayService) { }
+
+  ngOnInit(): void {
+    this.flaskService.getHelloMessage().subscribe(response => {
+      this.message = response;
+      console.log("message",this.message)
+    });
+  }
+  
   weatherList: WeatherDetails[] = [
     { heure: '09:00', temperature: 29, humidity: 60, windSpeed: 30 },
     { heure: '12:00', temperature: 27, humidity: 55, windSpeed: 25 },
