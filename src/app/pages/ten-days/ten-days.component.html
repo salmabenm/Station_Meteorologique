@@ -10,32 +10,31 @@
   <div class="flex items-center justify-center pt-3 mt-40 sm:mt-0 sm:pt-6">
       <button class="text-white bg-gray-500 rounded-full w-8 h-8 mt-0 transform transition-transform duration-300 hover:scale-110" (click)="prevGroup()">&#10094;</button>
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 mx-12">
-          <div *ngFor="let weatherItem of getVisibleWeatherItems()" class="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl transform transition-transform duration-300 hover:scale-110">
-              <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl  left-4 -top-6" style="
+        <div *ngFor="let weatherItem of getVisibleWeatherItems()" class="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl transform transition-transform duration-300 hover:scale-110">
+            <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl  left-4 -top-6" style="
               background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url('../../assets/background.jpg')">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <div class="font-semibold text-base pl-2">{{ weatherItem.date }}</div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div class="font-semibold text-base pl-2">{{  weatherItem['Date/Time']}}</div>
+            </div>
+            <div class="mt-8">
+              <div class="flex justify-between w-64 mb-4 w-full">
+                <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-thermometer-half"></i> Temperature</div>
+                <span class="block bg-sky-300 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weatherItem['Temp_C'].toFixed(2) }}  ºC</span>
               </div>
-              <div class="mt-8">
-                  <div  class="flex justify-between w-64 mb-4 w-full">
-                      <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-thermometer-half"></i> Temperature</div>
-                      <span class="block bg-sky-300 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weatherItem.temperature }} ºC</span>
-                  </div>
-                  <div  class="flex justify-between w-64 mb-4 w-full">
-                      <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-tint"></i> Humidity</div>
-                      <span class="block bg-sky-400 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weatherItem.humidity }} %</span>
-                  </div>
-                  <div  class="flex justify-between w-64 mb-4 w-full">
-                      <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-wind"></i> Wind Speed</div>
-                      <span class="block bg-sky-500 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weatherItem.windSpeed }} Km/h</span>
-                  </div>
+              <div class="flex justify-between w-64 mb-4 w-full">
+                <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-tint"></i> Humidity</div>
+                <span class="block bg-sky-400 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{  weatherItem['Rel Hum_%'].toFixed(0) }}  %</span>
               </div>
+              <div class="flex justify-between w-64 mb-4 w-full">
+                <div class="font-semibold text-s w-auto font-bold text-90"><i class="fas fa-wind"></i> Wind Speed</div>
+                <span class="block bg-sky-500 rounded-full text-white text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weatherItem['Wind Speed_km/h'].toFixed(0) }}  Km/h</span>
+              </div>
+            </div>
           </div>
+          
       </div>
       <button class="text-white bg-gray-500 rounded-full w-8 h-8 mt-0 transform transition-transform duration-300 hover:scale-110" (click)="nextGroup()">&#10095;</button>
-  </div>
-
-  
+  </div> 
 </div>

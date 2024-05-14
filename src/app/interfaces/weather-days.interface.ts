@@ -1,6 +1,6 @@
 export interface WeatherDays {
-    date: string;
-    temperature: number;
-    humidity: number;
-    windSpeed: number;
+  'Date/Time': string;
+  'Rel Hum_%': number;
+  'Temp_C': number;
+  'Wind Speed_km/h': number;
   }
