@@ -6,7 +6,7 @@ import { TodayService } from '../../services/todayService/today.service';
 @Component({
   selector: 'app-today',
   templateUrl: './today.component.html',
-  styleUrl: './today.component.css'
+  styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
 
@@ -16,34 +16,19 @@ export class TodayComponent implements OnInit {
   daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  message: string ='';
+  message: string = '';
+  weatherList: WeatherDetails[] = [];
+  totalItems = 0;
 
-  constructor(private flaskService: TodayService) { }
+  constructor(private weatherService: TodayService) { }
 
   ngOnInit(): void {
-    this.flaskService.getHelloMessage().subscribe(response => {
-      this.message = response;
-      console.log("message",this.message)
+    this.weatherService.getAllWeatherData().subscribe(data => {
+      this.weatherList = data;
+      this.totalItems = this.weatherList.length;
+      console.log("data", this.weatherList);
     });
   }
-  
-  weatherList: WeatherDetails[] = [
-    { heure: '09:00', temperature: 29, humidity: 60, windSpeed: 30 },
-    { heure: '12:00', temperature: 27, humidity: 55, windSpeed: 25 },
-    { heure: '15:00', temperature: 31, humidity: 65, windSpeed: 35 },
-    { heure: '18:00', temperature: 25, humidity: 63, windSpeed: 28 },
-    { heure: '20:00', temperature: 20, humidity: 55, windSpeed: 25 },
-    { heure: '21:00', temperature: 18, humidity: 65, windSpeed: 20 },
-    { heure: '22:00', temperature: 15, humidity: 68, windSpeed: 22 },
-    { heure: '23:00', temperature: 14, humidity: 70, windSpeed: 26 },
-    { heure: '03:00', temperature: 8, humidity: 55, windSpeed: 25 },
-    { heure: '04:00', temperature: 10, humidity: 65, windSpeed: 20 },
-    { heure: '05:00', temperature: 12, humidity: 68, windSpeed: 22 },
-    { heure: '06:00', temperature: 13, humidity: 70, windSpeed: 26 },
-   
-  ];
-
-  totalItems = this.weatherList.length;
 
   weathertoday: Weather[] = [
     {
