@@ -13,7 +13,7 @@ export class TomorrowService {
   constructor(private http: HttpClient) { }
 
   getTomorrowData(): Observable<Weather> {
-    return this.http.get<Weather>(`${this.apiUrl}/today`);
+    return this.http.get<Weather>(`${this.apiUrl}/tomorrow`);
   }
   
 }
