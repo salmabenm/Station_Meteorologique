@@ -15,7 +15,7 @@ export class TodayComponent implements OnInit {
   currentDate = new Date();
   daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+  todayData: Weather[]=[];
   message: string = '';
   weatherList: WeatherDetails[] = [];
   totalItems = 0;
@@ -28,21 +28,19 @@ export class TodayComponent implements OnInit {
       this.totalItems = this.weatherList.length;
       console.log("data", this.weatherList);
     });
-  }
 
-  weathertoday: Weather[] = [
-    {
-      temperature: 28,
-      humidity: 60,
-      windSpeed: 30,
-      date: {
+    this.weatherService.getTodayData().subscribe(data => {
+      const weather: Weather= data; 
+      weather.date = {
         dayOfWeek: this.daysOfWeek[this.currentDate.getDay()],
         fullDate: `${this.currentDate.getDate()} ${this.months[this.currentDate.getMonth()]} ${this.currentDate.getFullYear()}`,
         year: this.currentDate.getFullYear(),
         time: this.currentDate.toLocaleTimeString(),
-      },
-    },
-  ];
+      };
+      this.todayData.push(weather); 
+    });
+  }
+
 
   get productGroup(): any[] {
     const start = this.currentIndex * this.itemsPerPage;

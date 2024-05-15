@@ -1,7 +1,7 @@
 export interface Weather {
-  temperature: number;
-  humidity: number;
-  windSpeed: number;
+  'Rel Hum_%': number;
+  'Temp_C': number;
+  'Wind Speed_km/h': number;
   date: {
     dayOfWeek: string;
     fullDate: string;

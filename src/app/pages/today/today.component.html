@@ -7,8 +7,8 @@
             <div class="w-full lg:w-1/2 flex rounded-lg bg-auto">
                 <div class="rounded-lg py-6 pl-8 pr-32 w-full bg-blue-400 opacity-90 text-white">
                     <div class="mb-20">
-                        <h2 *ngFor="let weather of weathertoday" class="font-bold text-3xl leading-none pb-1">{{ weather.date.dayOfWeek }}</h2>
-                        <h3 *ngFor="let weather of weathertoday" class="leading-none pb-2 pl-0 pt-2">{{ weather.date.fullDate }}</h3>
+                        <h2 *ngFor="let weather of todayData" class="font-bold text-3xl leading-none pb-1">{{ weather.date.dayOfWeek }}</h2>
+                        <h3 *ngFor="let weather of todayData" class="leading-none pb-2 pl-0 pt-2">{{ weather.date.fullDate }}</h3>
                         Safi, MA  
                     </div>
                     <div>
@@ -25,7 +25,7 @@
                                 <path d="m38.4,38.5c1.6-1.6 1.6-4.2 0-5.8l-9.1-9.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l9.1,9.1c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
                             </g>
                         </svg>
-                        <strong *ngFor="let weather of weathertoday" class="leading-none text-6xl block font-weight-bolder">{{ weather.temperature }} ºC</strong>
+                        <strong *ngFor="let weather of todayData" class="leading-none text-6xl block font-weight-bolder">{{ weather['Temp_C'].toFixed(2) }} ºC</strong>
                         <b class="text-2xl block font-bold">Sunny</b>
                     </div>
                 </div>
@@ -33,17 +33,17 @@
 
             <div class="w-full lg:w-1/2 flex ml-0">
                 <div class="lg:my-3 bg-gray-800 text-white p-8 lg:rounded-r-lg w-full">
-                    <div *ngFor="let weather of weathertoday" class="flex justify-between w-64 mb-4 w-full">
+                    <div *ngFor="let weather of todayData" class="flex justify-between w-64 mb-4 w-full">
                         <div class="w-auto font-bold uppercase text-90"><i class="fas fa-thermometer-half"></i> Temperature</div>
-                        <div class="w-auto text-right">{{ weather.temperature }} ºC</div>
+                        <div class="w-auto text-right">{{ weather['Temp_C'].toFixed(2) }} ºC</div>
                     </div>
-                    <div *ngFor="let weather of weathertoday" class="flex justify-between w-64 mb-4 w-full">
+                    <div *ngFor="let weather of todayData" class="flex justify-between w-64 mb-4 w-full">
                         <div class="w-auto font-bold uppercase text-90"><i class="fas fa-tint"></i> Humidity</div>
-                        <div class="w-auto text-right">{{ weather.humidity }} %</div>
+                        <div class="w-auto text-right">{{ weather['Rel Hum_%'].toFixed(0) }} %</div>
                     </div>
-                    <div *ngFor="let weather of weathertoday" class="flex justify-between w-64 mb-8 w-full">
+                    <div *ngFor="let weather of todayData" class="flex justify-between w-64 mb-8 w-full">
                         <div class="w-auto font-bold uppercase text-90"><i class="fas fa-wind"></i> Wind Speed</div>
-                        <div class="w-auto text-right">{{ weather.windSpeed }} Km/h</div>
+                        <div class="w-auto text-right">{{ weather['Wind Speed_km/h'].toFixed(0) }} Km/h</div>
                     </div>
                     <div class="flex justify-center space-x-1">
                         <button class="text-white bg-gray-500 rounded-full w-8 h-8 mt-14 transform transition-transform duration-300 hover:scale-110" (click)="prevGroup()">&#10094;</button>

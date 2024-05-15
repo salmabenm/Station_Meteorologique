@@ -14,10 +14,10 @@
                 <i class="fas fa-sun fa-5x text-white"></i>
             </div>
             <div class="relative text-white px-6 pb-6 mt-6">
-                <span *ngFor="let weather of weathertomorrow" class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
+                <span *ngFor="let weather of tomorrowData" class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
                 <div class="flex justify-between">
                 <span class="block font-semibold text-xl pr-8 pt-2">Temperature </span>
-                <span *ngFor="let weather of weathertomorrow"class="block bg-white rounded-full text-orange-500 text-xs font-bold px-4 py-2 leading-none flex items-center">{{ weather.temperature }} ºC</span>
+                <span *ngFor="let weather of tomorrowData"class="block bg-white rounded-full text-orange-500 text-xs font-bold px-4 py-2 leading-none flex items-center">{{ weather['Temp_C'].toFixed(2) }} ºC</span>
                 </div>
             </div>
         </div>
@@ -31,10 +31,10 @@
                 <i class="fas fa-wind fa-5x text-white"></i>
             </div>
             <div class="relative text-white px-6 pb-6 mt-6">
-                <span *ngFor="let weather of weathertomorrow"class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
+                <span *ngFor="let weather of tomorrowData"class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
                 <div class="flex justify-between">
                 <span class="block font-semibold text-xl pr-8 pt-2">Wind Speed </span>
-                <span *ngFor="let weather of weathertomorrow" class="block bg-white rounded-full text-green-500 text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weather.windSpeed }} Km/h</span>
+                <span *ngFor="let weather of tomorrowData" class="block bg-white rounded-full text-green-500 text-xs font-bold px-3 py-2 leading-none flex items-center">{{ weather['Wind Speed_km/h'].toFixed(0) }} Km/h</span>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@
                 <i class="fas fa-tint fa-5x text-white"></i>
             </div>
             <div class="relative text-white px-6 pb-6 mt-6">
-                <span *ngFor="let weather of weathertomorrow" class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
+                <span *ngFor="let weather of tomorrowData" class="block opacity-75 -mb-1">{{ weather.date.fullDate }}</span>
                 <div class="flex justify-between">
                 <span class="block font-semibold text-xl pr-11 pt-2">Humidity </span>
-                <span *ngFor="let weather of weathertomorrow" class="block bg-white rounded-full text-blue-500 text-xs font-bold px-6 py-2 leading-none flex items-center">{{ weather.humidity }} %</span>
+                <span *ngFor="let weather of tomorrowData" class="block bg-white rounded-full text-blue-500 text-xs font-bold px-6 py-2 leading-none flex items-center">{{ weather['Rel Hum_%'].toFixed(0) }} %</span>
                 </div>
             </div>
         </div>     
